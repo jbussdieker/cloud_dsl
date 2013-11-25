@@ -1,24 +1,36 @@
-# CloudDsl
+# CloudDSL
 
-TODO: Write a gem description
+DSL for quickly creating test infrastructures.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'cloud_dsl'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install the gem using RubyGems:
 
     $ gem install cloud_dsl
 
+Run a template using:
+
+    $ cloud_dsl mytemplate.rb
+
 ## Usage
 
-TODO: Write usage instructions here
+Creating a simple single instance with SSH access:
+
+`````ruby
+aws(access_key_id: "SECRET", secret_access_key: "sEcReT") do
+  region "us-west-1" do
+    security_group "ssh" do
+      allow_cidr("1.2.3.4/32", :tcp, 22)
+    end
+    
+    key_pair "mykey"
+    
+    instance "ssh-server", image_id: "ami-123456" do
+      run "hostname"
+    end
+  end
+end
+`````
 
 ## Contributing
 
