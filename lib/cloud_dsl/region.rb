@@ -24,7 +24,7 @@ module CloudDSL
     end
 
     def key_pair(name)
-      filename = "keys/#{@region.name}-#{name}.pem"
+      filename = "#{ENV["HOME"]}/.ssh/cloud_dsl-#{@region.name}-#{name}.pem"
       begin
         key_pair = @region.key_pairs.create(name)
         File.open(filename, "w") do |f|
@@ -39,9 +39,6 @@ module CloudDSL
         end
       end
       KeyPair.new(self, key_pair)
-    end
-
-    def xinstance(*args)
     end
 
     def instance(name, args = {}, &block)
