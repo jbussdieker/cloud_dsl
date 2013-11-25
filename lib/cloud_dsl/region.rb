@@ -6,9 +6,7 @@ module CloudDSL
     end
 
     def logger
-      Logger.new(STDOUT).tap do |l|
-        l.level = Logger::INFO
-      end
+      CloudDSL.logger
     end
 
     def security_group(name, &block)
@@ -33,7 +31,7 @@ module CloudDSL
       rescue AWS::EC2::Errors::InvalidKeyPair::Duplicate => e
         key_pair = @region.key_pairs[name]
         unless File.exists? filename
-          logger.debug "Key exists but can't find private key"
+          logger.debug "Key exists but can't find private key in #{filename}"
         else
           key_pair.instance_eval { @private_key = File.read(filename) }
         end

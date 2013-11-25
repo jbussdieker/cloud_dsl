@@ -15,7 +15,7 @@ module CloudDSL
     end
 
     def logger
-      Logger.new(STDOUT)
+      CloudDSL.logger
     end
   end
 end

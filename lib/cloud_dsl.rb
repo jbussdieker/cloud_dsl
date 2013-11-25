@@ -7,5 +7,9 @@ require "cloud_dsl/security_group"
 require "cloud_dsl/instance"
 
 module CloudDSL
-  # Your code goes here...
+  def self.logger
+    Logger.new(STDOUT).tap do |l|
+      l.level = Logger::DEBUG
+    end
+  end
 end

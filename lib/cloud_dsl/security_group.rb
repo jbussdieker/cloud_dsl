@@ -13,9 +13,7 @@ module CloudDSL
     end
 
     def logger
-      Logger.new(STDOUT).tap do |l|
-        l.level = Logger::INFO
-      end
+      CloudDSL.logger
     end
 
     def allow_cidr(cidr, protocol, range)
