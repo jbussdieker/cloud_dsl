@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = CloudDSL::VERSION
   spec.authors       = ["Joshua Bussdieker"]
   spec.email         = ["jbussdieker@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.summary       = %q{DSL for quickly creating test infrastructures.}
+  spec.homepage      = "http://github.com/jbussdieker/cloud_dsl"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
