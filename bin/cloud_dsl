@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'cloud_dsl'
+
+dsl = CloudDSL::Runner.new
+dsl.instance_eval(File.read(ARGV[0]))
